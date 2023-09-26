@@ -7,10 +7,10 @@ repo tugas3 React js muhammad fauzan
 3. Selanjutnya jalan kan "  npm install ".
 4. Untuk menjalankan project ini, Anda akan memerlukan dua terminal:
    1. Terminal 1 - Menjalankan NPM Run Dev
-   jalan kan terminal pertaman dengan " npm run dev ".
+   ,jalan kan terminal pertaman dengan " npm run dev ".
 
    2. Terminal 2 - Menjalankan NPM Run Server
-   jalan kan terminal kedua dengan " npm run server ".
+   ,jalan kan terminal kedua dengan " npm run server ".
 
    
 # React + Vite
