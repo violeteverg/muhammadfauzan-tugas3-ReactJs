@@ -1,0 +1,64 @@
+{
+  "cities": [
+    {
+      "cityName": "Medan",
+      "country": "Indonesia",
+      "emoji": "🇮🇩",
+      "date": "2023-09-23T20:45:59.560Z",
+      "notes": "horas",
+      "position": {
+        "lat": "3.568247821628616",
+        "lng": "98.67919921875001"
+      },
+      "id": 984232331
+    },
+    {
+      "cityName": "Singapore",
+      "country": "Singapore",
+      "emoji": "🇸🇬",
+      "date": "2023-09-25T09:58:22.533Z",
+      "notes": "nice place\n",
+      "position": {
+        "lat": "1.2962761196418218",
+        "lng": "103.75488281250001"
+      },
+      "id": 984232333
+    },
+    {
+      "cityName": "Jakarta",
+      "country": "Indonesia",
+      "emoji": "🇮🇩",
+      "date": "2023-09-25T09:58:37.678Z",
+      "notes": "panas",
+      "position": {
+        "lat": "-6.218718843159832",
+        "lng": "106.90040588378908"
+      },
+      "id": 984232334
+    },
+    {
+      "cityName": "Greater Manchester",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2023-09-25T09:59:30.079Z",
+      "notes": "manchester is blue,red one is lame",
+      "position": {
+        "lat": "53.47006563435706",
+        "lng": "-2.2274780273437504"
+      },
+      "id": 984232335
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-09-26T10:05:22.517Z",
+      "notes": "hala madrid awowoowk",
+      "position": {
+        "lat": "40.41035916448923",
+        "lng": "-3.6914062500000004"
+      },
+      "id": 984232336
+    }
+  ]
+}

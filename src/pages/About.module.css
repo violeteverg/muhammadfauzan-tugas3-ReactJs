@@ -1,0 +1,33 @@
+.About {
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  min-height: 100vh;
+}
+
+.About section {
+  width: clamp(80rem, 80%, 90rem);
+  margin: 6rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+.About img {
+  width: 100%;
+}
+
+.About h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.About p {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.About section a {
+  margin-top: 2rem;
+}
