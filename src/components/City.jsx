@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useCities } from "../contexts/CitiesContext";
+import { useDispatch, useSelector } from "react-redux";
+import { getCity, flagEmojiToPNG } from "../redux/slices/CitiesSlices";
 
 import styles from "./City.module.css";
 import Spinner from "./Spinner";
@@ -15,25 +16,25 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const { getCity, currentCity, isLoading, flagemojiToPNG } = useCities();
+  const currentCity = useSelector((state) => state.cities.currentCity);
+  const isLoading = useSelector((state) => state.cities.isLoading);
 
-  useEffect(
-    function () {
-      getCity(id);
-    },
-    [id, getCity]
-  );
+  useEffect(() => {
+    dispatch(getCity(id));
+  }, [id, dispatch]);
 
   const { cityName, emoji, date, notes } = currentCity;
 
   if (isLoading) return <Spinner />;
+
   return (
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji ? flagemojiToPNG(emoji) : ""}</span> {cityName}
+          <span>{emoji ? flagEmojiToPNG(emoji) : ""}</span> {cityName}
         </h3>
       </div>
 
