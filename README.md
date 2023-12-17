@@ -11,12 +11,13 @@ Pada branch master, proyek ini menggunakan Context API untuk manajemen state. Co
 Branch development merupakan tempat saya bereksperimen dan pembelajaran,project di branch ini menggunakan Redux Toolkit sebagai alat utama untuk manajemen state.
 
 # Langkah langkah penggunaan 
-1. Clone repository ini.
-   note:
+1. Clone repository ini
+   1.  note:
    bila mana ingin clone repo development gunakan cara ini: **git clone -b <branch> <remote_repo>**
-3. Masuk kedalam directory untuk menginstall dependensi.
-4. Selanjutnya jalan kan "  npm install ".
-5. Untuk menjalankan project ini, Anda akan memerlukan dua terminal:
+
+2. Masuk kedalam directory untuk menginstall dependensi.
+3. Selanjutnya jalan kan "  npm install ".
+4. Untuk menjalankan project ini, Anda akan memerlukan dua terminal:
    1. Terminal 1 - Menjalankan NPM Run Dev
    ,jalan kan terminal pertaman dengan " npm run dev ".
 
