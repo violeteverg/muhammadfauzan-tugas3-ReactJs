@@ -1,15 +1,23 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/slices/AuthSlices";
 
 import styles from "./User.module.css";
 
 function User() {
-  const { user, logout } = useAuth();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   function handleClick() {
-    logout();
+    dispatch(logout());
     navigate("/");
+  }
+
+  // Tambahkan pengecekan kondisi sebelum mengakses properti user
+  if (!user) {
+    // Misalnya, Anda bisa menampilkan pesan atau tindakan lain jika user tidak tersedia
+    return <div>User not available</div>;
   }
 
   return (

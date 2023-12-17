@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/slices/AuthSlices";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
 
 import Button from "../components/Button";
 import PageNav from "../components/PageNav";
 import styles from "./Login.module.css";
 
 function Login() {
+  const dispatch = useDispatch();
+  const isAuthenticatedRedux = useSelector(
+    (state) => state.auth.isAuthenticated
+  );
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("ojan56@gmail.com");
   const [password, setPassword] = useState("123456");
-
-  const { login, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (email && password) login(email, password);
+    if (email && password) dispatch(login(email, password));
   }
 
-  useEffect(
-    function () {
-      if (isAuthenticated) navigate("/app", { replace: true });
-    },
-    [isAuthenticated, navigate]
-  );
+  useEffect(() => {
+    if (isAuthenticatedRedux) {
+      navigate("/app", { replace: true });
+    }
+  }, [isAuthenticatedRedux, navigate]);
 
   return (
     <main className={styles.login}>

@@ -1,4 +1,6 @@
-import { useCities } from "../contexts/CitiesContext";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCities, flagEmojiToPNG } from "../redux/slices/CitiesSlices";
 
 import Spinner from "./Spinner";
 import styles from "./CountryList.module.css";
@@ -6,7 +8,13 @@ import CountryItem from "./CountryItem";
 import Message from "./Message";
 
 function CountryList() {
-  const { cities, isLoading, flagemojiToPNG } = useCities();
+  const dispatch = useDispatch();
+  const { cities, isLoading } = useSelector((state) => state.cities);
+
+  useEffect(() => {
+    dispatch(fetchCities());
+  }, [dispatch]);
+
   if (isLoading) return <Spinner />;
   if (!cities.length)
     return (
@@ -15,7 +23,7 @@ function CountryList() {
 
   const countries = cities.reduce((arr, city) => {
     if (!arr.some((e) => e.country === city.country)) {
-      arr.push({ country: city.country, emoji: flagemojiToPNG(city.emoji) });
+      arr.push({ country: city.country, emoji: flagEmojiToPNG(city.emoji) });
     }
     return arr;
   }, []);

@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCities, flagEmojiToPNG } from "../redux/slices/CitiesSlices";
 //react leflet untuk map worldnya
 import {
   MapContainer,
@@ -8,16 +11,15 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import styles from "./Map.module.css";
-import { useEffect, useState } from "react";
-import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { usePosition } from "../hooks/usePosition";
 
+import styles from "./Map.module.css";
 import Button from "./Button";
 
 function Map() {
-  const { cities, flagemojiToPNG } = useCities();
+  const dispatch = useDispatch();
+  const { cities } = useSelector((state) => state.cities);
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const [mapLat, mapLng] = usePosition();
   const {
@@ -25,6 +27,10 @@ function Map() {
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
+
+  useEffect(() => {
+    dispatch(fetchCities());
+  }, [dispatch]);
 
   useEffect(
     function () {
@@ -64,7 +70,7 @@ function Map() {
             key={city.id}
           >
             <Popup>
-              <span>{flagemojiToPNG(city.emoji)}</span>{" "}
+              <span>{flagEmojiToPNG(city.emoji)}</span>{" "}
               <span>{city.cityName}</span>
             </Popup>
           </Marker>

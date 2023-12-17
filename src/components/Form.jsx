@@ -2,9 +2,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { useState, useEffect } from "react";
-import { usePosition } from "../hooks/usePosition";
-import { useCities } from "../contexts/CitiesContext";
+import { useDispatch, useSelector } from "react-redux";
+import { createCity, flagEmojiToPNG } from "../redux/slices/CitiesSlices";
 import { useNavigate } from "react-router-dom";
+import { usePosition } from "../hooks/usePosition";
 
 import Message from "./Message";
 import Spinner from "./Spinner";
@@ -23,7 +24,8 @@ function convertEmoji(countryCode) {
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
-  const { createCity, flagemojiToPNG, isLoading } = useCities();
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.cities);
   const [cityName, setCityName] = useState("");
   const [lat, lng] = usePosition();
   const [country, setCountry] = useState("");
@@ -82,7 +84,7 @@ function Form() {
       position: { lat, lng },
     };
 
-    await createCity(newCity);
+    await dispatch(createCity(newCity));
     navigate("/app/cities");
   }
 
@@ -104,7 +106,7 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        <span className={styles.flag}>{flagemojiToPNG(emoji)}</span>
+        <span className={styles.flag}>{flagEmojiToPNG(emoji)}</span>
       </div>
 
       <div className={styles.row}>

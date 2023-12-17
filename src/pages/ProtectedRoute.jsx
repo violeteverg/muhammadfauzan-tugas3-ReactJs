@@ -1,19 +1,23 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { useSelector } from "react-redux";
 
 function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuth();
+  const isAuthenticatedRedux = useSelector(
+    (state) => state.auth.isAuthenticated
+  );
   const navigate = useNavigate();
 
   useEffect(
     function () {
-      if (!isAuthenticated) navigate("/");
+      if (!isAuthenticatedRedux) {
+        navigate("/");
+      }
     },
-    [isAuthenticated, navigate]
+    [isAuthenticatedRedux, navigate]
   );
 
-  return isAuthenticated ? children : null;
+  return isAuthenticatedRedux ? children : null;
 }
 
 export default ProtectedRoute;

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createReducer, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const FAKE_USER = {
   name: "ojan",
@@ -7,7 +7,7 @@ const FAKE_USER = {
   avatar: "https://i.pravatar.cc/150?img=58",
 };
 
-const intialState = {
+const initialState = {
   user: null,
   isAuthenticated: false,
 };
@@ -20,24 +20,22 @@ export const login = createAsyncThunk("login", async ({ email, password }) => {
   }
 });
 
-const authReducer = createReducer(intialState, (builder) => {
-  builder.addCase("logout", (state) => {
-    (state.user = null), (state.isAuthenticated = false);
-  });
-});
-
-const authSlices = createSlice({
+const AuthSlices = createSlice({
   name: "auth",
-  initialState: intialState,
+  initialState: initialState,
   reducers: {
-    logout: authReducer,
+    logout: (state) => {
+      state.user = null;
+      state.isAuthenticated = false;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, action) => {
-      (state.user = action.payload), (state.isAuthenticated = true);
+      state.user = action.payload;
+      state.isAuthenticated = true;
     });
   },
 });
 
-export const { logout } = authSlices.actions;
-export default authSlices.reducer;
+export const { logout } = AuthSlices.actions;
+export default AuthSlices.reducer;

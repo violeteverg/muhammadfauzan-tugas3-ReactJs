@@ -46,9 +46,9 @@ export const flagEmojiToPNG = (flag) => {
   return `https://flagcdn.com/24x18/${countryCode}.png`;
 };
 
-const citiesSlice = createSlice({
+const CitiesSlices = createSlice({
   name: "cities",
-  intialState: { ...intialState },
+  initialState: { ...intialState },
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -99,4 +99,4 @@ const citiesSlice = createSlice({
   },
 });
 
-export default citiesSlice.reducer;
+export default CitiesSlices.reducer;
