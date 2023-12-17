@@ -13,7 +13,7 @@ Branch development merupakan tempat saya bereksperimen dan pembelajaran,project 
 # Langkah langkah penggunaan 
 1. Clone repository ini.
    *note:
-      bila mana ingin clone repo development gunakan cara ini: git clone -b <branch> <remote_repo>
+      bila mana ingin clone repo development gunakan cara ini: **git clone -b <branch> <remote_repo>**
 3. Masuk kedalam directory untuk menginstall dependensi.
 4. Selanjutnya jalan kan "  npm install ".
 5. Untuk menjalankan project ini, Anda akan memerlukan dua terminal:
