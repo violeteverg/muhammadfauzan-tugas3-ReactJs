@@ -12,7 +12,7 @@ repo tugas3 React js muhammad fauzan
    2. Terminal 2 - Menjalankan NPM Run Server
    ,jalan kan terminal kedua dengan " npm run server ".
 
-# Proyek XYZ
+# Project 
 Proyek ini dikembangkan menggunakan dua branch utama: master dan development.
 
 1. Branch Master
