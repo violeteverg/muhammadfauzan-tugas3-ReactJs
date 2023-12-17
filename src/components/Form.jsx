@@ -106,7 +106,9 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        <span className={styles.flag}>{flagEmojiToPNG(emoji)}</span>
+        <span className={styles.flag}>
+          <img src={flagEmojiToPNG(emoji)} alt="flag" />
+        </span>
       </div>
 
       <div className={styles.row}>

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const FAKE_USER = {
   name: "ojan",
@@ -12,30 +12,29 @@ const initialState = {
   isAuthenticated: false,
 };
 
-export const login = createAsyncThunk("login", async ({ email, password }) => {
-  if (email === FAKE_USER.email && password === FAKE_USER.password) {
-    return FAKE_USER;
-  } else {
-    throw new Error("invalid user");
-  }
-});
-
-const AuthSlices = createSlice({
+const authSlice = createSlice({
   name: "auth",
   initialState: initialState,
   reducers: {
+    login: (state, action) => {
+      try {
+        const { email, password } = action.payload;
+        if (email === FAKE_USER.email && password === FAKE_USER.password) {
+          state.user = FAKE_USER;
+          state.isAuthenticated = true;
+        } else {
+          console.log("Invalid login attempt.");
+        }
+      } catch (error) {
+        console.error("Error in login:", error);
+      }
+    },
     logout: (state) => {
       state.user = null;
       state.isAuthenticated = false;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(login.fulfilled, (state, action) => {
-      state.user = action.payload;
-      state.isAuthenticated = true;
-    });
-  },
 });
 
-export const { logout } = AuthSlices.actions;
-export default AuthSlices.reducer;
+export const { login, logout } = authSlice.actions;
+export default authSlice.reducer;

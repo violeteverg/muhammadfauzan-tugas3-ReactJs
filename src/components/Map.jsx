@@ -70,7 +70,9 @@ function Map() {
             key={city.id}
           >
             <Popup>
-              <span>{flagEmojiToPNG(city.emoji)}</span>{" "}
+              <span>
+                <img src={flagEmojiToPNG(city.emoji)} alt="flag" />
+              </span>{" "}
               <span>{city.cityName}</span>
             </Popup>
           </Marker>

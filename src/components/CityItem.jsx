@@ -29,7 +29,9 @@ function CityItem({ city }) {
         }`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
-        <span className={styles.emoji}>{flagEmojiToPNG(emoji)}</span>
+        <span className={styles.emoji}>
+          <img src={flagEmojiToPNG(emoji)} alt="flag" />
+        </span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>({formatDate(date)})</time>
         <button className={styles.deleteBtn} onClick={deleteBtn}>

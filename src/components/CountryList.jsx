@@ -23,7 +23,10 @@ function CountryList() {
 
   const countries = cities.reduce((arr, city) => {
     if (!arr.some((e) => e.country === city.country)) {
-      arr.push({ country: city.country, emoji: flagEmojiToPNG(city.emoji) });
+      arr.push({
+        country: city.country,
+        emoji: <img src={flagEmojiToPNG(city.emoji)} alt="flag" />,
+      });
     }
     return arr;
   }, []);

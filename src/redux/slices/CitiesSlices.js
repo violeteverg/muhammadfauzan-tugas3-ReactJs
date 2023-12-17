@@ -39,12 +39,19 @@ export const deleteCity = createAsyncThunk("city/deleted", async (id) => {
   return id;
 });
 
-export const flagEmojiToPNG = (flag) => {
+export function flagEmojiToPNG(flag) {
   let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
     .map((char) => String.fromCharCode(char - 127397).toLowerCase())
     .join("");
   return `https://flagcdn.com/24x18/${countryCode}.png`;
-};
+}
+// export function flagEmojiToPNG(countryCode) {
+//   const codePoints = countryCode
+//     .toUpperCase()
+//     .split("")
+//     .map((char) => 127397 + char.charCodeAt());
+//   return String.fromCodePoint(...codePoints);
+// }
 
 const CitiesSlices = createSlice({
   name: "cities",

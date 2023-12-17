@@ -20,11 +20,14 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (email && password) dispatch(login(email, password));
+    if (email && password) {
+      dispatch(login({ email, password }));
+    }
   }
 
   useEffect(() => {
     if (isAuthenticatedRedux) {
+      console.log("Redirecting to /app...");
       navigate("/app", { replace: true });
     }
   }, [isAuthenticatedRedux, navigate]);

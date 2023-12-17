@@ -59,6 +59,30 @@
         "lng": "-3.6914062500000004"
       },
       "id": 984232336
+    },
+    {
+      "cityName": "Mecca",
+      "country": "Saudi Arabia",
+      "emoji": "🇸🇦",
+      "date": "2024-12-20T12:22:29.000Z",
+      "notes": "next plan to mecca for my mom",
+      "position": {
+        "lat": "21.417276156993662",
+        "lng": "39.85814999483756"
+      },
+      "id": 984232337
+    },
+    {
+      "cityName": "Osaka",
+      "country": "Japan",
+      "emoji": "🇯🇵",
+      "date": "2025-04-01T14:15:31.000Z",
+      "notes": "with my bae  maybe?",
+      "position": {
+        "lat": "34.70662237058582",
+        "lng": "135.50262451171878"
+      },
+      "id": 984232338
     }
   ]
 }
