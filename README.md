@@ -1,17 +1,6 @@
 # Assignment ReactJs harisenin batch 8
 repo tugas3 React js muhammad fauzan 
 
-# Langkah langkah penggunaan 
-1. Clone repository ini.
-2. Masuk kedalam directory untuk menginstall dependensi.
-3. Selanjutnya jalan kan "  npm install ".
-4. Untuk menjalankan project ini, Anda akan memerlukan dua terminal:
-   1. Terminal 1 - Menjalankan NPM Run Dev
-   ,jalan kan terminal pertaman dengan " npm run dev ".
-
-   2. Terminal 2 - Menjalankan NPM Run Server
-   ,jalan kan terminal kedua dengan " npm run server ".
-
 # Project 
 Proyek ini dikembangkan menggunakan dua branch utama: master dan development.
 
@@ -20,7 +9,20 @@ Pada branch master, proyek ini menggunakan Context API untuk manajemen state. Co
 
 2. Branch Development
 Branch development merupakan tempat saya bereksperimen dan pembelajaran,project di branch ini menggunakan Redux Toolkit sebagai alat utama untuk manajemen state.
-   
+
+# Langkah langkah penggunaan 
+1. Clone repository ini.
+   *note:
+      bila mana ingin clone repo development gunakan cara ini: git clone -b <branch> <remote_repo>
+3. Masuk kedalam directory untuk menginstall dependensi.
+4. Selanjutnya jalan kan "  npm install ".
+5. Untuk menjalankan project ini, Anda akan memerlukan dua terminal:
+   1. Terminal 1 - Menjalankan NPM Run Dev
+   ,jalan kan terminal pertaman dengan " npm run dev ".
+
+   2. Terminal 2 - Menjalankan NPM Run Server
+   ,jalan kan terminal kedua dengan " npm run server ".
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
